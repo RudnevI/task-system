@@ -1,0 +1,21 @@
+#section_1 {
+    display: flex;
+    padding: 100px 100px;
+}
+
+tbody {
+    height: 150px;
+    /* Just for the demo          */
+    overflow-y: auto;
+    /* Trigger vertical scroll    */
+    overflow-x: hidden;
+    /* Hide the horizontal scroll */
+}
+
+.margin_15 {
+    margin: 15px 0;
+}
+
+.margin_0 {
+    margin: 0;
+}
