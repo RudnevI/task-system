@@ -5,8 +5,8 @@ namespace App\Service;
 use App\Models\Task;
 
 class TaskService {
-    public static function getFilteredTasks($projectId, $deadline) {
-        $parameters = ['projectId' => $projectId, 'deadline' => $deadline];
+    public static function getFilteredTasks($data) {
+        $parameters = ['project_id' => array_key_exists('projectId', $data) ? $data['projectId'] : null, 'deadline' =>  array_key_exists('deadline', $data) ? $data['deadline'] : null];
         $predicate = [];
         foreach(array_keys($parameters) as $parameterName) {
             if($parameters[$parameterName] !== null) {
@@ -16,5 +16,5 @@ class TaskService {
         return Task::where($predicate)->get();
 
     }
-    
+
 }
