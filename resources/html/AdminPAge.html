@@ -31,7 +31,7 @@
                         <div class="left_menu_side">
                             <button onclick="showOrHide('#add_user_form')" class="btn add_btn">Добавить
                                 пользователя</button>
-                            <button onclick="showOrHide('#user_list_div')" class="btn add_btn">Все
+                            <button onclick="showOrHide('#usser_list_div')" class="btn add_btn">Все
                                 пользователи</button>
                         </div>
 
@@ -82,7 +82,7 @@
 
                             </form>
 
-                            <div id="user_list_div">
+                            <div id="usser_list_div">
                                 <table class="table table-bordered table-striped table-hover">
                                     <thead>
                                         <tr class="trBackColor">
@@ -125,7 +125,7 @@
                         <div class="left_menu_side">
                             <button onclick="showOrHide('#add_project_form')" class="btn add_btn">Добавить
                                 Проект</button>
-                            <button onclick="showOrHide('#project_list_div')" class="btn add_btn">Все
+                            <button onclick="showOrHide('#pproject_list_div')" class="btn add_btn">Все
                                 проекты</button>
                         </div>
 
@@ -146,7 +146,7 @@
                                 <button type="submit" class="btn btnBackColor margin_15">Сохранить</button>
                             </form>
 
-                            <div id="project_list_div">
+                            <div id="pproject_list_div">
                                 <table class="table table-bordered table-striped table-hover">
                                     <thead>
                                         <tr class="trBackColor">
@@ -184,7 +184,7 @@
                         <div class="left_menu_side">
                             <button onclick="showOrHide('#add_task_form')" class="btn add_btn">Добавить
                                 задачу</button>
-                            <button onclick="showOrHide('#task_list_div')" class="btn add_btn">Все
+                            <button onclick="showOrHide('#ttask_list_div')" class="btn add_btn">Все
                                 задачи</button>
                         </div>
 
@@ -229,7 +229,7 @@
                                 <button type="submit" class="btn btnBackColor margin_15">Сохранить</button>
                             </form>
 
-                            <div id="task_list_div">
+                            <div id="ttask_list_div">
                                 <table class="table table-bordered table-striped table-hover">
                                     <thead>
                                         <tr class="trBackColor">
@@ -285,12 +285,15 @@
 
 <script>
     function showOrHide(formId) {
-        if ($("formId:contains(form)")) {
-            $("#user_list_div").css("display", "none");
-            $("#project_list_div").css("display", "none");
-            $("#task_list_div").css("display", "none");
 
+        if (formId.includes('user')) {
+            $("#usser_list_div").css("display", "none");
+        } else if (formId.includes('project')) {
+            $("#pproject_list_div").css("display", "none");
+        } else if (formId.includes('task')) {
+            $("#ttask_list_div").css("display", "none");
         }
+
         $(formId).css("display", "block");
         $('form:not(' + formId + ')').hide();
     }
