@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}">
     <title>Document</title>
 </head>
 
@@ -15,7 +15,7 @@
         <div class="divWrapper">
             <div class="textWrapper displaySettings">
                 <div>
-                    <img class="userImg" src="../img/user_2.png">
+                <img class="userImg" src="{{ asset('img/user_2.png') }}" />
                     <input value="Имя пользователя" disabled class="form-control">
                 </div>
                 <h1 class="titleH1">Учет рабочего времени</h1>
