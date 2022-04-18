@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Task;
+use App\Models\Project;
+use App\Service\TaskService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,11 +21,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/search', function(Request $request) {
+Route::get('/search', function() {
+    return TaskService::search('nobis');
+});
 
-    $data = $request->all();
-    if(!array_key_exists('name', $data)) {
-        return response()->json(["Message" => "No parameter"], 413);
-    }
-    return TaskService::search($data['name']);
+Route::get('/tasks', function() {
+    return Task::all();
+});
+
+Route::get('projects', function() {
+    return Project::all();
 });
