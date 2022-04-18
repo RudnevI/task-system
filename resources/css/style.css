@@ -41,11 +41,27 @@
     margin: 20px 5px;
 }
 
+
+/* thead,
+tbody {
+    display: block;
+    width: 1200px;
+} */
+
+tbody {
+    height: 50px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Hide the horizontal scroll */
+}
+
+
+/* 
 tbody {
     height: 150px;
     overflow-y: auto;
     overflow-x: hidden;
-}
+} */
 
 .trBackColor {
     background-color: #c0c6c6;

@@ -39,19 +39,19 @@
                             <form id="add_user_form">
                                 <div class="mb-3">
                                     <label class="form-label">Логин</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Пароль</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1">
+                                    <input type="password" class="form-control" id="exampleInputPassword1" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Fullname</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" required>
                                 </div>
-                                <select class="form-select margin_15" aria-label=".form-select-sm example">
-                                    <option selected>Роли</option>
-                                    <option value="1">Разработчик</option>
+                                <select class="form-select margin_15" aria-label=".form-select-sm example" required>
+                                    <option disabled>Роли</option>
+                                    <option selected value="1">Разработчик</option>
                                     <option value="2">Менеджер</option>
                                     <option value="3">Администратор</option>
                                 </select>
@@ -62,18 +62,18 @@
                             <form id="update_user_form">
                                 <div class="mb-3">
                                     <label class="form-label">Логин</label>
-                                    <input type="text" class="form-control" value="User Exists">
+                                    <input type="text" class="form-control" value="User Exists" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Пароль</label>
-                                    <input type="password" class="form-control" value="User Exists Pass" id="exampleInputPassword1">
+                                    <input type="password" class="form-control" value="User Exists Pass" id="exampleInputPassword1" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Fullname</label>
-                                    <input type="text" value="User Exists Fullname" class="form-control">
+                                    <input type="text" value="User Exists Fullname" class="form-control" required>
                                 </div>
                                 <select class="form-select margin_15" aria-label=".form-select-sm example">
-                                    <option>Роли</option>
+                                    <option disabled>Роли</option>
                                     <option value="1">Разработчик</option>
                                     <option selected value="2">Менеджер</option>
                                     <option value="3">Администратор</option>
@@ -133,7 +133,7 @@
                             <form id="add_project_form">
                                 <div class="mb-3">
                                     <label class="form-label">Название проекта</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" required>
                                 </div>
                                 <button type="submit" class="btn btnBackColor margin_15">Сохранить</button>
                             </form>
@@ -141,7 +141,7 @@
                             <form id="update_project_form">
                                 <div class="mb-3">
                                     <label class="form-label">Название проекта</label>
-                                    <input type="text" class="form-control" value="Проект 1">
+                                    <input type="text" class="form-control" value="Проект 1" required>
                                 </div>
                                 <button type="submit" class="btn btnBackColor margin_15">Сохранить</button>
                             </form>
@@ -153,6 +153,7 @@
                                             <th scope="col">"№"</th>
                                             <th scope="col">ID проекта</th>
                                             <th scope="col">Название проекта</th>
+                                            <th scope="col">Задачи проекта</th>
                                             <!-- Задачи проекта нужны ли -->
                                             <th scope="col"></th>
                                             <th scope="col"></th>
@@ -163,6 +164,7 @@
                                             <th scope="row">1</th>
                                             <td>ID_1</td>
                                             <td>Проект 1</td>
+                                            <td>Задача 1<br>Задача 2</td>
                                             <td><button class="btn borderSolid">Удалить</button></td>
                                             <td><button onclick="showOrHide('#update_project_form')" class="btn borderSolid">Изменить</button></td>
                                         </tr>
@@ -170,6 +172,7 @@
                                             <th scope="row">2</th>
                                             <td>ID_2</td>
                                             <td>Проект 2</td>
+                                            <td>Задача 1<br>Задача 2</td>
                                             <td><button class="btn borderSolid">Удалить</button></td>
                                             <td><button onclick="showOrHide('#update_project_form')" class="btn borderSolid">Изменить</button></td>
                                         </tr>
@@ -192,16 +195,16 @@
                             <form id="add_task_form">
                                 <div class="mb-3">
                                     <label class="form-label">Название задачи</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" required>
                                 </div>
                                 <select class="form-select margin_15" aria-label=".form-select-sm example">
-                                    <option selected>Проекты</option>
+                                    <option selected disabled>Проекты</option>
                                     <option value="1">Проект 1</option>
                                     <option value="2">Проект 2</option>
                                     <option value="3">Проект 3</option>
                                 </select>
                                 <select class="form-select margin_15" aria-label=".form-select-sm example">
-                                    <option selected>Разрабы</option>
+                                    <option selected disabled>Разрабы</option>
                                     <option value="1">Разраб 1</option>
                                     <option value="2">Разраб 2</option>
                                     <option value="3">Разраб 3</option>
@@ -212,16 +215,16 @@
                             <form id="update_task_form">
                                 <div class="mb-3">
                                     <label class="form-label">Название задачи</label>
-                                    <input type="text" class="form-control" value="Задача 1">
+                                    <input type="text" class="form-control" value="Задача 1" required>
                                 </div>
                                 <select class="form-select margin_15" aria-label=".form-select-sm example">
-                                    <option>Проекты</option>
+                                    <option disabled>Проекты</option>
                                     <option value="1">Проект 1</option>
                                     <option selected value="2">Проект 2</option>
                                     <option value="3">Проект 3</option>
                                 </select>
                                 <select class="form-select margin_15" aria-label=".form-select-sm example">
-                                    <option>Разрабы</option>
+                                    <option disabled>Разрабы</option>
                                     <option selected value="1">Разраб 1</option>
                                     <option value="2">Разраб 2</option>
                                     <option value="3">Разраб 3</option>
