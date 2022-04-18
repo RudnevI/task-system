@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ResourceController;
 use App\Models\Project;
 use App\Models\Task;
 use App\Service\TaskService;
@@ -34,5 +35,8 @@ Route::get('/get-filtered-tasks', function (Request $request) {
 
     return TaskService::getFilteredTasks($data);
 });
+
+Route::get('/admin-page', [ResourceController::class, 'getAdminPageView']);
+
 //end test block
 /* TODO: Убрать тестовые методы */
