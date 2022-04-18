@@ -2,7 +2,9 @@
 
 namespace App\Service;
 
+use App\Models\Project;
 use App\Models\Task;
+use Illuminate\Support\Facades\DB;
 
 class TaskService {
     public static function getFilteredTasks($data) {
@@ -16,5 +18,12 @@ class TaskService {
         return Task::where($predicate)->get();
 
     }
+
+    public static function search($name) {
+        return Task::with('project')->where('name', 'like', '%'.$name.'%')->orWhereHas('project', function($query) use($name) {
+            $query->where('name', 'like', '%'.$name.'%');
+        })->paginate(20);
+    }
+
 
 }

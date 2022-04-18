@@ -15,4 +15,5 @@ class TaskInfo extends Model
         'comment',
         'job_id'
     ];
+
 }

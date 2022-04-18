@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Project;
 use App\Models\Task;
+use App\Models\Project;
 use App\Service\TaskService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,19 +20,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-//start test block
-Route::get('/projects', function () {
-    return Project::all();
+
+Route::get('/search', function() {
+    return TaskService::search('nobis');
 });
-Route::get('/tasks', function () {
+
+Route::get('/tasks', function() {
     return Task::all();
 });
 
-Route::get('/get-filtered-tasks', function (Request $request) {
-
-    $data = $request->all();
-
-    return TaskService::getFilteredTasks($data);
+Route::get('projects', function() {
+    return Project::all();
 });
-//end test block
-/* TODO: Убрать тестовые методы */
