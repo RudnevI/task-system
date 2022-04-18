@@ -1,0 +1,169 @@
+/* Personal tasks Page */
+
+#section_1 {
+    display: flex;
+    padding: 100px 100px;
+}
+
+.divWrapper {
+    width: 100%;
+    border: solid;
+}
+
+.displaySettings {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.textWrapper {
+    background-color: #f5f5f5;
+}
+
+.userImg {
+    width: 100px;
+    margin: 10px 0;
+}
+
+.titleH1 {
+    margin-bottom: 60px;
+    font-weight: bold;
+}
+
+.btnBackColor {
+    background-color: #9fccf9;
+}
+
+
+/* Table */
+
+.margin_20_5 {
+    margin: 20px 5px;
+}
+
+tbody {
+    height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.trBackColor {
+    background-color: #c0c6c6;
+}
+
+
+/* Modal */
+
+.modalTimeDiv {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.displayFlex {
+    display: flex;
+}
+
+.margin_0_10 {
+    margin: 0 10px;
+}
+
+
+/*  */
+
+.margin_15 {
+    margin: 15px 0;
+}
+
+.margin_0 {
+    margin: 0;
+}
+
+
+/* Dev|Manager Personal Statistics Page */
+
+.devPersonalStatDivWrapper,
+.managerPersonalStatDivWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #f5f5f5;
+}
+
+.devPersonalStatDivWrapper {
+    align-items: center;
+}
+
+.devPersonalStatTextWrapper,
+.managerPersonalStatTextWrapper {
+    margin: 30px 0;
+    font-weight: bold;
+}
+
+.managerPersonalStatTextWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Manager Personal Statistics Page */
+
+.inputSize {
+    width: 40px;
+    height: 40px;
+}
+
+.taskStatDiv {
+    display: flex;
+    justify-content: space-between;
+    width: 55%;
+    align-items: center;
+    margin-left: 15px;
+}
+
+
+/* Admin Page */
+
+.container {
+    margin-top: 50px;
+}
+
+.div_wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 500px;
+}
+
+.left_menu_side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px;
+    width: 25%;
+}
+
+.add_btn {
+    background-color: #9fccf9;
+    margin: 10px 0;
+    width: 250px;
+}
+
+.right_content_side {
+    width: 72%;
+    border: solid 1px;
+    padding: 50px;
+}
+
+#add_user_form,
+#update_user_form,
+#add_project_form,
+#update_project_form,
+#add_task_form,
+#update_task_form {
+    display: none;
+}
+
+.borderSolid {
+    border: solid 1px;
+}

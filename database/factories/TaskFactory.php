@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Project;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,12 @@ class TaskFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->text(),
+            'description' => $this->faker->text(),
+            'status' => $this->faker->randomElement(['todo', 'inprogress', 'completed']),
+            'deadline' => $this->faker->date(),
+            'project_id' => Project::factory()->create()->id,
+            'user_id' => User::factory()->create()->id
         ];
     }
 }
