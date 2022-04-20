@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Controller;
 use App\Models\Task;
 use App\Models\Project;
 use App\Service\TaskService;
@@ -17,18 +19,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('auth')->group(function () {
+    Route::get('/', [Controller::class, 'index']);
+    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 });
 
-Route::get('/search', function() {
-    return TaskService::search('nobis');
+Route::middleware('guest')->group(function () {
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
+    Route::post('login', [AuthenticatedSessionController::class, 'store']);
 });
 
-Route::get('/tasks', function() {
-    return Task::all();
-});
+// Route::get('/search', function() {
+//     return TaskService::search('nobis');
+// });
 
-Route::get('projects', function() {
-    return Project::all();
-});
+// Route::get('/tasks', function() {
+//     return Task::all();
+// });
+
+// Route::get('projects', function() {
+//     return Project::all();
+// });
