@@ -65,8 +65,8 @@
                                     <input type="text" class="form-control" value="User Exists" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Пароль</label>
-                                    <input type="password" class="form-control" value="User Exists Pass" id="exampleInputPassword1" required>
+                                    <label for="exampleInputPassword2" class="form-label">Пароль</label>
+                                    <input type="password" class="form-control" value="User Exists Pass" id="exampleInputPassword2" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Fullname</label>
