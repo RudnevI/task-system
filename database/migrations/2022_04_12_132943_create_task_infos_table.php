@@ -18,6 +18,7 @@ return new class extends Migration
             $table->dateTime('time_start');
             $table->dateTime('time_end');
             $table->text('comment');
+            $table->foreignId('task_id')->constrained();
             $table->foreignId('job_id')->constrained();
             $table->timestamps();
         });
