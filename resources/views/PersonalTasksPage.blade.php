@@ -39,9 +39,9 @@
                 <div class="displaySettings" style="width: 600px; justify-content: space-around;">
                     <select class="form-select margin_15" style="width: 200px;" aria-label=".form-select-sm example">
                             <option selected>Проекты</option>
-                            <option value="1">Проект 1</option>
-                            <option value="2">Проект 2</option>
-                            <option value="3">Проект 3</option>
+                            @foreach ($projects as $project)
+                                <option value="{{ $project->id }}">{{ $project->name }}</option>
+                            @endforeach
                         </select>
                     <span>Дедлайн:</span>
                     <input type="date" name="calendar" id="datePicker_2">
@@ -52,43 +52,28 @@
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                             <tr class="trBackColor">
-                                <th scope="col">"№"</th>
                                 <th scope="col">Проект</th>
                                 <th scope="col">Задача</th>
                                 <th scope="col">Дедлайн</th>
-                                <th scope="col">Тип работы</th>
+                                <th scope="col">Статус</th>
 
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">1</th>
                                 <td>Проект 1</td>
                                 <td><a data-bs-toggle="modal" data-bs-target="#exampleModal">Задача 1</a></td>
                                 <td>15.04.22</td>
                                 <td>Анализ кода</td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Проект 2</td>
-                                <td><a data-bs-toggle="modal" data-bs-target="#exampleModal">Задача 2</a></td>
-                                <td>18.04.22</td>
-                                <td>Написать Код</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Проект 2</td>
-                                <td><a data-bs-toggle="modal" data-bs-target="#exampleModal">Задача 1</a></td>
-                                <td>18.04.22</td>
-                                <td>Написать Код</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Проект 2</td>
-                                <td><a data-bs-toggle="modal" data-bs-target="#exampleModal">Задача 3</a></td>
-                                <td>18.04.22</td>
-                                <td>Написать Код</td>
-                            </tr>
+                            @foreach ($projects as $project)
+                                @foreach ($project->tasks as $task)
+                                    <td>{{ $project->name }}</td>
+                                    <td>{{ $task->name }}</td>
+                                    <td>{{ $task->deadline }}</td>
+                                    <td>{{ $task->status }}</td>
+                                @endforeach
+                            @endforeach
                         </tbody>
                     </table>
 
