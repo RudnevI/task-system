@@ -167,3 +167,13 @@ tbody {
 .borderSolid {
     border: solid 1px;
 }
+
+/* Login Page */
+
+.login_div{
+    border: solid 1px;
+    padding: 100px;
+    margin: 0 250px;
+    background-color: #efefef;
+    width: 700px;
+}
