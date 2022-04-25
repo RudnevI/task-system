@@ -14,7 +14,9 @@ class JobController extends Controller
 
     public function store(Request $request)
     {
-        $entity = Job::create($request->name);
+        $entity = new Job;
+        $entity->name = $request->name;
+        $entity->save();
         return response()->json($entity, 201);
     }
 

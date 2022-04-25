@@ -14,7 +14,7 @@ class TaskInfoController extends Controller
 
     public function store(Request $request)
     {
-        $entity = TaskInfo::create($request->name);
+        $entity = TaskInfo::create($request->all());
         return response()->json($entity, 201);
     }
 
