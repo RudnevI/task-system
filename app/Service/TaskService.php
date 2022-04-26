@@ -22,7 +22,7 @@ class TaskService {
 
         // dd(Task::with('project')->get());
         // dd(Task::where('project_id', '=', $data['project_id'])->get());
-        return Project::with('tasks')->whereHas('tasks', function($query) use($data) {
+        return Project::with('tasks')->whereRelation('tasks', 'user_id', Auth::id())->whereHas('tasks', function($query) use($data) {
             return $query->where('project_id', '=', $data['project_id']);
         })->orWhereHas('tasks', function($query) use($data) {
             return $query->where('deadline', '=' , $data['deadline']);
@@ -34,7 +34,7 @@ class TaskService {
 
     public static function search($name) {
 
-        return Project::with('tasks')->where('name', 'like', '%'.$name.'%')->orWhereHas('tasks', function($query) use($name) {
+        return Project::with('tasks')->whereRelation('tasks', 'user_id', Auth::id())->where('name', 'like', '%'.$name.'%')->orWhereHas('tasks', function($query) use($name) {
             $query->where('name', 'like', '%'.$name.'%');
         })->paginate(20);
 
