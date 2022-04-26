@@ -19,8 +19,8 @@ class TaskFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->text(),
-            'description' => $this->faker->text(),
+            'name' => $this->faker->word(),
+            'description' => $this->faker->sentence(),
             'status' => $this->faker->randomElement(['todo', 'inprogress', 'completed']),
             'deadline' => $this->faker->date(),
             'project_id' => Project::factory()->create()->id,

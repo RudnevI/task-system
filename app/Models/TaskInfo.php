@@ -13,6 +13,7 @@ class TaskInfo extends Model
         'time_start',
         'time_end',
         'comment',
+        'task_id',
         'job_id'
     ];
 

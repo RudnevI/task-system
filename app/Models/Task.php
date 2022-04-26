@@ -22,6 +22,7 @@ class Task extends Model
         return $this->belongsTo(Project::class);
     }
 
+
     public function user() {
         return $this->belongsTo(User::class);
     }
@@ -29,4 +30,6 @@ class Task extends Model
     public function taskInfo() {
         return $this->hasMany(TaskInfo::class);
     }
+
+   
 }

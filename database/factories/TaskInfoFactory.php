@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Job;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class TaskInfoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'time_start' => $this->faker->dateTime(),
+            'time_end' => $this->faker->dateTime(),
+            'comment' => $this->faker->text(),
+            'job_id' => Job::factory()->create()->id
         ];
     }
 }

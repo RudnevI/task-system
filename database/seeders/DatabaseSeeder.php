@@ -2,10 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Job;
 use App\Models\Project;
 use App\Models\Task;
-use Database\Factories\ProjectFactory;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\TaskInfo;
+use App\Models\User;
+use Database\Factories\JobFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,10 +17,19 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
+    public $modelClasses = [
+        Job::class,
+        Project::class,
+        Task::class,
+        TaskInfo::class,
+
+    ];
+
     public function run()
     {
-        \App\Models\User::factory(10)->create();
-        Project::factory(90)->create();
-        Task::factory(100)->create();
+        foreach($this->modelClasses as $modelClass) {
+            $modelClass::factory(40)->create();
+        }
     }
 }
