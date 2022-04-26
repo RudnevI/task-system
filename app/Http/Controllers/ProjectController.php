@@ -15,7 +15,9 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, ['name' => 'required|string|unique:projects']);
-        $entity = Project::create($request->name);
+        $entity = new Project;
+        $entity->name = $request->name;
+        $entity->save();
         return response()->json($entity, 201);
     }
 

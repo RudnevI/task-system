@@ -12,7 +12,10 @@ use Illuminate\Http\Request;
 class TaskInfoController extends Controller
 {
     public function store(Request $request)
-    {    
+
+    {
+   
+    
         $data = $request->validate([
             
             'comment' => 'required|string',
@@ -23,6 +26,7 @@ class TaskInfoController extends Controller
         
         $entity = TaskInfo::create($data);
         $entity->save();
+
         return response()->json($entity, 201);
     }
 

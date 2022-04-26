@@ -4,6 +4,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TaskInfoController;
+use App\Http\Controllers\MainController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,6 @@ Route::apiResource('job', JobController::class);
 Route::apiResource('project', ProjectController::class);
 Route::apiResource('task', TaskController::class);
 Route::apiResource('taskinfo', TaskInfoController::class);
+
+Route::get('/personalStatistics', [TaskInfoController::class , 'personalStatistics']);
+Route::get('/managerStatistics', [TaskInfoController::class , 'managerStatistics']);

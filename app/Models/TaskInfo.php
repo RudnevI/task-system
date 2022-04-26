@@ -17,4 +17,7 @@ class TaskInfo extends Model
         'job_id'
     ];
 
+    public function job() {
+        return $this->belongsTo(Job::class);
+    }
 }
