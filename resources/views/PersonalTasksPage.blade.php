@@ -54,15 +54,6 @@
                                 <option value="{{ $project->id }}">{{ $project->name }}</option>
                             @endforeach
                         </select>
-
-
-                    <select class="form-select margin_15" style="width: 200px;" aria-label=".form-select-sm example">
-                        <option selected>Проекты</option>
-                        @foreach ($projects as $project)
-                            <option value="{{ $project->id }}">{{ $project->name }}</option>
-                        @endforeach
-                    </select>
-
                     <span>Дедлайн:</span>
                     <input type="date" name="deadline" id="datePicker_2">
                     <button class="btn btnBackColor" type="submit">фильтр</button>
