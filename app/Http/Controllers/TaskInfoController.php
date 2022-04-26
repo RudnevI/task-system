@@ -56,7 +56,7 @@ class TaskInfoController extends Controller
       
         $taskInfo->save();
         $projects = Project::all();
-        return view('PersonalTasksPage')->with(['projects' => $projects]);
+        return redirect('/');
     }  
 
     public function destroy($id)

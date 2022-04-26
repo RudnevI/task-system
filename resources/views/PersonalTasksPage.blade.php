@@ -112,7 +112,7 @@
                                     <td>{{ $project->name }}</td>
                                     <td>
                                         @if ($task->name != null)
-                                            <a data-bs-toggle="modal" data-bs-target="#exampleModal">{{ $task->name }}</a>
+                                            <a id="{{$task->id}}" onClick="clicked()" data-value="{{$task->id}}" data-bs-toggle="modal" data-bs-target="#exampleModal">{{ $task->name }}</a>
                                         @endif
                                     </td>
                                     <td>
@@ -135,25 +135,6 @@
                 </div>
             </div>
             {{ $projects->links() }}
-
-
-                            @foreach ($projects as $project)
-                                @foreach ($project->tasks as $task)
-                                    <tr>
-                                        <td>{{ $project->name }}</td>
-                                        <td><a data-bs-toggle="modal" id="${test_{{ $task->id }}}"
-                                                onClick="clicked()" data-value="{{ $task->id }}"
-                                                data-bs-target="#exampleModal">{{ $task->name }}</a></td>
-
-                                        <td>{{ $task->deadline }}</td>
-                                        <td>{{ $task->status }}</td>
-                                    </tr>
-                                @endforeach
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
 
         </div>
 
@@ -187,19 +168,17 @@
                             <select name="job_name" id="job_name_select" class="form-select margin_15"
                                 aria-label=".form-select-sm example">
                                 <option disabled>Тип работы</option>
-                                <option selected value="1"></option>
-                                <option></option>
-                                <option></option>
-                                <option></option>
-                                <option></option>
+                                @foreach ($jobs as $job)
+                                    <option value="{{ $job->id }}">{{ $job->name }}</option>
+                                @endforeach
                             </select>
 
                             <select name="tast_status" id="task_status_select" class="form-select margin_15"
                                 aria-label=".form-select-sm example">
                                 <option disabled>Статус работы</option>
-                                <option value="todo">todo</option>
-                                <option value="inprogress">inprogress</option>
-                                <option value="completed">completed</option>
+                                <option value="todo">To Do</option>
+                                <option value="inprogress">In Progress</option>
+                                <option value="completed">Completed</option>
                             </select>
 
                             <textarea id="taskComment" name="comment" class="form-control margin_15">Комменты</textarea>

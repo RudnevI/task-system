@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
+use App\Models\Job;
 use App\Models\Project;
 
 use App\Service\ResourceService;
@@ -25,7 +26,7 @@ class Controller extends BaseController
         $projects = Project::with('tasks.taskInfos')->whereRelation('tasks', 'user_id', Auth::id())->paginate(20);
         // $projects = Project::with('tasks')->whereRelation('tasks', 'user_id', Auth::id())->get();
         // $projects = Project::with('tasks')->paginate(20);
-        return view('PersonalTasksPage')->with(['projects' => $projects]);
+        return view('PersonalTasksPage')->with(['projects' => $projects, 'jobs' => Job::orderBy('name')->get()]);
     }
 
     public function filteredIndex(Request $request) {
