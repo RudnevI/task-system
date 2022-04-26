@@ -29,23 +29,27 @@
                         <span>Сегодня:</span>
                         <input type="date" name="calendar" id="datePicker">
                     </div>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="поиск по задачам" aria-label="Search">
+                    <form class="d-flex" action="{{ route('index.search') }}" method="GET">
+                        <input class="form-control me-2" type="search" placeholder="поиск по задачам" aria-label="Search" name="name">
                         <button class="btn btn-outline-success" type="submit">Поиск</button>
                     </form>
 
                 </div>
 
                 <div class="displaySettings" style="width: 600px; justify-content: space-around;">
-                    <select class="form-select margin_15" style="width: 200px;" aria-label=".form-select-sm example">
-                            <option selected>Проекты</option>
+                    <form action="{{ route('index.filter') }}" method="GET">
+                        <label class="form-label">Проект</label>
+                    <select class="form-select margin_15" style="width: 200px;" aria-label=".form-select-sm example" name="project_id">
+                            <option value="" selected disabled>Проекты</option>
                             @foreach ($projects as $project)
                                 <option value="{{ $project->id }}">{{ $project->name }}</option>
                             @endforeach
                         </select>
+
                     <span>Дедлайн:</span>
-                    <input type="date" name="calendar" id="datePicker_2">
-                    <button class="btn btnBackColor">фильтр</button>
+                    <input type="date" name="deadline" id="datePicker_2">
+                    <button class="btn btnBackColor" type="submit">фильтр</button>
+                </form>
                 </div>
 
                 <div class="margin_20_5">
@@ -60,27 +64,38 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Проект 1</td>
-                                <td><a data-bs-toggle="modal" data-bs-target="#exampleModal">Задача 1</a></td>
-                                <td>15.04.22</td>
-                                <td>Анализ кода</td>
-                            </tr>
+
                             @foreach ($projects as $project)
                                 @foreach ($project->tasks as $task)
+                                <tr>
                                     <td>{{ $project->name }}</td>
-                                    <td>{{ $task->name }}</td>
-                                    <td>{{ $task->deadline }}</td>
-                                    <td>{{ $task->status }}</td>
+                                    <td>
+                                        @if ($task->name != null)
+                                            {{$task->name}}
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($task->deadline != null)
+                                        {{$task->deadline}}
+                                        @endif
+                                </td>
+                                    <td>
+                                        @if ($task->status != null)
+                                        {{$task->status}}
+                                        @endif
+                                    </td>
+                                </tr>
                                 @endforeach
                             @endforeach
                         </tbody>
-                    </table>
 
+                    </table>
                 </div>
             </div>
+            {{ $projects->links() }}
 
         </div>
+
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
