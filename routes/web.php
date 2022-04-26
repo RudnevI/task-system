@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', [Controller::class, 'index']);
+    Route::get('/', [Controller::class, 'index'])->name('index');
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     Route::get('/filtered', [Controller::class, 'filteredIndex'])->name('index.filter');
     Route::get('/search', [Controller::class, 'search'])->name('index.search');
