@@ -57,21 +57,42 @@
                                 <th scope="col">Дедлайн</th>
                                 <th scope="col">Статус</th>
 
+                                <th scope="col">07</th>
+                                <th scope="col">08</th>
+                                <th scope="col">09</th>
+                                <th scope="col">10</th>
+                                <th scope="col">11</th>
+                                <th scope="col">12</th>
+                                <th scope="col">13</th>
+                                <th scope="col">14</th>
+                                <th scope="col">15</th>
+                                <th scope="col">16</th>
+                                <th scope="col">17</th>
+                                <th scope="col">18</th>
+                                <th scope="col">19</th>
+                                <th scope="col">20</th>
+                                <th scope="col">21</th>
+                                <th scope="col">22</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Проект 1</td>
-                                <td><a data-bs-toggle="modal" data-bs-target="#exampleModal">Задача 1</a></td>
-                                <td>15.04.22</td>
-                                <td>Анализ кода</td>
-                            </tr>
                             @foreach ($projects as $project)
                                 @foreach ($project->tasks as $task)
-                                    <td>{{ $project->name }}</td>
-                                    <td>{{ $task->name }}</td>
-                                    <td>{{ $task->deadline }}</td>
-                                    <td>{{ $task->status }}</td>
+                                    @if (round((strtotime($task->deadline) - time()) / 3600 / 24) <= 1)
+                                        <tr bgcolor="pink">
+                                    @elseif (round((strtotime($task->deadline) - time()) / 3600 / 24) <= 3)
+                                        <tr bgcolor="lemonchiffon">
+                                    @else
+                                        <tr>
+                                    @endif
+                                            <td>{{ $project->name }}</td>
+                                            <td><a data-bs-toggle="modal" data-bs-target="#exampleModal">{{ $task->name }}</a></td>
+                                            <td>{{ $task->deadline }}</td>
+                                            <td>{{ $task->status }}</td>
+                                            @foreach ($task->taskInfos as taskInfo)
+                                                
+                                            @endforeach
+                                        </tr>
                                 @endforeach
                             @endforeach
                         </tbody>

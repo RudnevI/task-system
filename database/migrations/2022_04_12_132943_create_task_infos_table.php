@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('task_infos', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('time_start');
-            $table->dateTime('time_end');
+            $table->unsignedTinyInteger('time_start');
+            $table->unsignedTinyInteger('time_end');
             $table->text('comment');
             $table->foreignId('task_id')->constrained();
             $table->foreignId('job_id')->constrained();

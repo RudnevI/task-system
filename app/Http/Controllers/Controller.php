@@ -17,7 +17,7 @@ class Controller extends BaseController
 
     public function index()
     {
-        $projects = Project::with('tasks')->whereRelation('tasks', 'user_id', Auth::id())->get();
+        $projects = Project::with('tasks.taskInfos')->whereRelation('tasks', 'user_id', Auth::id())->get();
         return view('PersonalTasksPage')->with(['projects' => $projects]);
     }
 }
