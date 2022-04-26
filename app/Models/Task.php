@@ -22,11 +22,14 @@ class Task extends Model
         return $this->belongsTo(Project::class);
     }
 
-    public function taskInfos() {
-        return $this->hasMany(TaskInfo::class);
-    }
 
     public function user() {
         return $this->belongsTo(User::class);
     }
+
+    public function taskInfo() {
+        return $this->hasMany(TaskInfo::class);
+    }
+
+   
 }
