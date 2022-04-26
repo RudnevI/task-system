@@ -25,4 +25,8 @@ class Task extends Model
     public function taskInfos() {
         return $this->hasMany(TaskInfo::class);
     }
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -8,7 +8,11 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use App\Models\Project;
+
+use App\Service\ResourceService;
+
 use App\Service\TaskService;
+
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,5 +36,9 @@ class Controller extends BaseController
 
     public function search(Request $request) {
         return view('PersonalTasksPage')->with(['projects' => TaskService::search($request['name'])]);
+    }
+
+    public function adminPanel() {
+        return view('AdminPAge', ResourceService::getDataForAdminPage());
     }
 }

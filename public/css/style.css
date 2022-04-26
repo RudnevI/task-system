@@ -34,7 +34,6 @@
     background-color: #9fccf9;
 }
 
-
 /* Table */
 
 .margin_20_5 {
@@ -50,7 +49,6 @@ tbody {
 .trBackColor {
     background-color: #c0c6c6;
 }
-
 
 /* Modal */
 
@@ -68,7 +66,6 @@ tbody {
     margin: 0 10px;
 }
 
-
 /*  */
 
 .margin_15 {
@@ -78,7 +75,6 @@ tbody {
 .margin_0 {
     margin: 0;
 }
-
 
 /* Dev|Manager Personal Statistics Page */
 
@@ -105,7 +101,6 @@ tbody {
     justify-content: center;
 }
 
-
 /* Manager Personal Statistics Page */
 
 .inputSize {
@@ -120,7 +115,6 @@ tbody {
     align-items: center;
     margin-left: 15px;
 }
-
 
 /* Admin Page */
 
@@ -161,7 +155,6 @@ tbody {
 #update_project_form,
 #add_task_form,
 #update_task_form {
-    display: none;
 }
 
 .borderSolid {
@@ -170,10 +163,27 @@ tbody {
 
 /* Login Page */
 
-.login_div{
+.login_div {
     border: solid 1px;
     padding: 100px;
     margin: 0 250px;
     background-color: #efefef;
     width: 700px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.creation-form {
+    margin-top: 10vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.creation-form-content {
+    width: 40%;
 }
