@@ -71,7 +71,7 @@ Route::get('tasks', function() {
     return Task::all();
 });
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/users', [ResourceController::class, 'getUserAdminPanel'])->name('admin-users');
     Route::get('/projects', [ResourceController::class, 'getProjectAdminPanel'])->name('admin-projects');
     Route::get('/tasks', [ResourceController::class, 'getTaskAdminPanel'])->name('admin-tasks');
