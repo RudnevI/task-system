@@ -31,24 +31,42 @@
                         <span>Сегодня:</span>
                         <input type="date" name="calendar" id="datePicker">
                     </div>
+
+                    <form class="d-flex" action="{{ route('index.search') }}" method="GET">
+                        <input class="form-control me-2" type="search" placeholder="поиск по задачам" aria-label="Search" name="name">
+
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="поиск по задачам"
                             aria-label="Search">
+
                         <button class="btn btn-outline-success" type="submit">Поиск</button>
                     </form>
 
                 </div>
 
                 <div class="displaySettings" style="width: 600px; justify-content: space-around;">
+
+                    <form action="{{ route('index.filter') }}" method="GET">
+                        <label class="form-label">Проект</label>
+                    <select class="form-select margin_15" style="width: 200px;" aria-label=".form-select-sm example" name="project_id">
+                            <option value="" selected disabled>Проекты</option>
+                            @foreach ($projects as $project)
+                                <option value="{{ $project->id }}">{{ $project->name }}</option>
+                            @endforeach
+                        </select>
+
+
                     <select class="form-select margin_15" style="width: 200px;" aria-label=".form-select-sm example">
                         <option selected>Проекты</option>
                         @foreach ($projects as $project)
                             <option value="{{ $project->id }}">{{ $project->name }}</option>
                         @endforeach
                     </select>
+
                     <span>Дедлайн:</span>
-                    <input type="date" name="calendar" id="datePicker_2">
-                    <button class="btn btnBackColor">фильтр</button>
+                    <input type="date" name="deadline" id="datePicker_2">
+                    <button class="btn btnBackColor" type="submit">фильтр</button>
+                </form>
                 </div>
 
                 <div class="margin_20_5">
@@ -63,6 +81,38 @@
                             </tr>
                         </thead>
                         <tbody>
+
+
+                            @foreach ($projects as $project)
+                                @foreach ($project->tasks as $task)
+                                <tr>
+                                    <td>{{ $project->name }}</td>
+                                    <td>
+                                        @if ($task->name != null)
+                                            {{$task->name}}
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($task->deadline != null)
+                                        {{$task->deadline}}
+                                        @endif
+                                </td>
+                                    <td>
+                                        @if ($task->status != null)
+                                        {{$task->status}}
+                                        @endif
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @endforeach
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            {{ $projects->links() }}
+
+
                             @foreach ($projects as $project)
                                 @foreach ($project->tasks as $task)
                                     <tr>
@@ -80,7 +130,9 @@
                     </table>
                 </div>
             </div>
+
         </div>
+
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"

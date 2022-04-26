@@ -19,10 +19,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth')->group(function () {
+
     Route::get('/', [Controller::class, 'index']);
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
-});
+    Route::get('/filtered', [Controller::class, 'filteredIndex'])->name('index.filter');
+    Route::get('/search', [Controller::class, 'search'])->name('index.search');
+
 
 Route::middleware('guest')->group(function () {
     Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
