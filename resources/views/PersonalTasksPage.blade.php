@@ -78,6 +78,22 @@
                                 <th scope="col">Дедлайн</th>
                                 <th scope="col">Статус</th>
 
+                                <th scope="col">07</th>
+                                <th scope="col">08</th>
+                                <th scope="col">09</th>
+                                <th scope="col">10</th>
+                                <th scope="col">11</th>
+                                <th scope="col">12</th>
+                                <th scope="col">13</th>
+                                <th scope="col">14</th>
+                                <th scope="col">15</th>
+                                <th scope="col">16</th>
+                                <th scope="col">17</th>
+                                <th scope="col">18</th>
+                                <th scope="col">19</th>
+                                <th scope="col">20</th>
+                                <th scope="col">21</th>
+                                <th scope="col">22</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -85,11 +101,18 @@
 
                             @foreach ($projects as $project)
                                 @foreach ($project->tasks as $task)
-                                <tr>
+                                @if (round((strtotime($task->deadline) - time()) / 3600 / 24) <= 1)
+                                        <tr bgcolor="pink">
+                                    @elseif (round((strtotime($task->deadline) - time()) / 3600 / 24) <= 3)
+                                        <tr bgcolor="lemonchiffon">
+                                    @else
+                                        <tr>
+                                    @endif
+                                    
                                     <td>{{ $project->name }}</td>
                                     <td>
                                         @if ($task->name != null)
-                                            {{$task->name}}
+                                            <a data-bs-toggle="modal" data-bs-target="#exampleModal">{{ $task->name }}</a>
                                         @endif
                                     </td>
                                     <td>
@@ -103,6 +126,7 @@
                                         @endif
                                     </td>
                                 </tr>
+
                                 @endforeach
                             @endforeach
                         </tbody>
