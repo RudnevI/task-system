@@ -23,7 +23,7 @@ class Controller extends BaseController
 
     public function index()
     {
-        $projects = Project::with('tasks.taskInfos')->whereRelation('tasks', 'user_id', Auth::id())->paginate(20);
+        $projects = Project::with('tasks.taskInfo')->whereRelation('tasks', 'user_id', Auth::id())->paginate(20);
         // $projects = Project::with('tasks')->whereRelation('tasks', 'user_id', Auth::id())->get();
         // $projects = Project::with('tasks')->paginate(20);
         return view('PersonalTasksPage')->with(['projects' => $projects, 'jobs' => Job::orderBy('name')->get()]);

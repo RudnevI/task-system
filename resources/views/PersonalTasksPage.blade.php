@@ -18,7 +18,7 @@
             <div class="textWrapper displaySettings">
                 <div>
                     <img class="userImg" src="{{ asset('img/user_2.png') }}" />
-                    <input value="Имя пользователя" disabled class="form-control">
+                    <input value="{{auth()->user()->name }}" disabled class="form-control">
                 </div>
                 <h1 class="titleH1">Учет рабочего времени</h1>
             </div>
