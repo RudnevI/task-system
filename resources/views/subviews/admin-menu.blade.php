@@ -35,7 +35,9 @@
                 <li><a class="dropdown-item" href="{{ route('admin-projects') }}">Общий список</a></li>
             </ul>
           </li>
-
+          <li class="nav-item">
+              <a class="nav-link" href="{{ route('index')}}">На главную</a>
+          </li>
         </ul>
 
       </div>
